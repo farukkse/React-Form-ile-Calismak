@@ -10,7 +10,6 @@ function TaskList({ tasks, removeTask, editTask, doneTask, defaultFalse }) {
     setPriority(prev => !prev)
   }
 
-  // useEffect(() => {// func. calisacak} //[eger array bos ise ilk component yuklenince anlamina gelir])
   // task bilgisi componente ulasinca filtera esitle
   useEffect(() => {
     setFilteredTask(tasks)
@@ -29,8 +28,8 @@ function TaskList({ tasks, removeTask, editTask, doneTask, defaultFalse }) {
 
   return (
     <>
-      <div className="p-4 bg-light mb-5 border rounded">
-        <h4 className="mb-3">Gorevler:
+      <div className="p-4 bg-light mb-5 border rounded" style={{overflowY:"scroll",maxHeight:600}}>
+        <h4 className="mb-3">Görevler:
           <button onClick={handlePriorityFilter}
             className={`btn btn-sm ${!priority ? "btn-info" : "btn-primary"} float-end`}>
             {

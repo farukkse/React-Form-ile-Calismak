@@ -14,6 +14,7 @@ function TaskForm() {
   const [taskChangeCount, setTaskChangeCount] = useState(0)
 
   const defaultFalse = false;
+
   // sayfa ilk acildiginda islem yap
   useEffect(() => {
     const localStorageTasks = JSON.parse(localStorage.getItem('tasks'))
@@ -21,7 +22,6 @@ function TaskForm() {
   }, [])
 
   // tasks bilgisi degisince islem yap
-
   useEffect(() => {
     if (taskChangeCount > 0) {
       localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -40,8 +40,6 @@ function TaskForm() {
     setTaskChangeCount(prev => prev + 1)
   }
   function editTask(uuid) {
-    console.log(uuid)
-
     const task = tasks.find(item => item.uuid === uuid)
     console.log(task)
     setFormData({ ...task, isEdited: true })
@@ -49,9 +47,6 @@ function TaskForm() {
 
   }
   function removeTask(uuid) {
-
-    console.log(uuid)
-
     setTasks(prev => prev.filter(item => item.uuid !== uuid))
     setTaskChangeCount(prev => prev + 1)
   }
@@ -68,7 +63,7 @@ function TaskForm() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log(formData)
+    // console.log(formData)
     if (formData.isEdited) {
       const taskIndex = tasks.findIndex(item => item.uuid === formData.uuid)
       const newTasks = tasks.slice()
@@ -94,14 +89,6 @@ function TaskForm() {
   return (
     <>
 
-      <TaskList
-        tasks={tasks}
-        removeTask={removeTask}
-        editTask={editTask}
-        doneTask={doneTask}
-        defaultFalse={defaultFalse} />
-
-
       <form onSubmit={handleFormSubmit}>
         <div className="row mb-3">
           <label htmlFor="task" className="col-sm-2 col-form-label">Task</label>
@@ -117,7 +104,6 @@ function TaskForm() {
             />
           </div>
         </div>
-
 
         <div className="row mb-3">
           <div className="col-sm-10 offset-sm-2">
@@ -138,6 +124,13 @@ function TaskForm() {
         </div>
         <button type="submit" className="btn btn-primary">Kaydet</button>
       </form>
+      
+      <TaskList
+        tasks={tasks}
+        removeTask={removeTask}
+        editTask={editTask}
+        doneTask={doneTask}
+        defaultFalse={defaultFalse} />
     </>
   )
 }
