@@ -4,7 +4,7 @@ import TaskListItemIcon from './TaskListItemIcon'
 function TaskListItem({ task, editTask, removeTask, doneTask }) {
     return (
         <>
-        
+
             <li className={`list-group-item ${task.isDone && 'bg-success bg-gradient'}`}>
 
                 {task.priority &&

@@ -89,7 +89,7 @@ function TaskForm() {
   return (
     <>
 
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className='mb-5'>
         <div className="row mb-3">
           <label htmlFor="task" className="col-sm-2 col-form-label">Task</label>
           <div className="col-sm-10">
