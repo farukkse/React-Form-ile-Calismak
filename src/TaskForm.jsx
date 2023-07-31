@@ -91,7 +91,7 @@ function TaskForm() {
 
       <form onSubmit={handleFormSubmit} className='mb-5'>
         <div className="row mb-3">
-          <label htmlFor="task" className="col-sm-2 col-form-label">Task</label>
+          {/* <label htmlFor="task" className="col-sm-2 col-form-label">Task</label> */}
           <div className="col-sm-10">
             <input
               type="text"
@@ -100,13 +100,15 @@ function TaskForm() {
               name='task'
               value={formData.task}
               onChange={handleInputChange}
+              placeholder='Görev Ekle'
 
             />
           </div>
         </div>
 
         <div className="row mb-3">
-          <div className="col-sm-10 offset-sm-2">
+          {/* offset-sm-2 */}
+          <div className="col-sm-10 ">
             <div className="form-check">
               <input
                 className="form-check-input"
@@ -117,7 +119,7 @@ function TaskForm() {
                 onChange={handleInputChange} />
 
               <label className="form-check-label" htmlFor="priority">
-                Oncelikli
+                Önemli
               </label>
             </div>
           </div>

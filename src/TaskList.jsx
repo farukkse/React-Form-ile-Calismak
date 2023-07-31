@@ -33,7 +33,7 @@ function TaskList({ tasks, removeTask, editTask, doneTask, defaultFalse }) {
           <button onClick={handlePriorityFilter}
             className={`btn btn-sm ${!priority ? "btn-info" : "btn-primary"} float-end`}>
             {
-              !priority ? 'Oncelikli Olanlari Goster' : 'Hepsini Goster ...'}</button>
+              !priority ? 'Önemli Olanlari Göster' : 'Hepsini Göster ...'}</button>
         </h4>
         <ul className="list-group">
           {filteredTasks.map(
